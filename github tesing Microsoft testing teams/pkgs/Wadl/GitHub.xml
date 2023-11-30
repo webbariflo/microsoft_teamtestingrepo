@@ -1,0 +1,1839 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://india-001.azure-apim.net/apim/github" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="GitHub" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="GitHub">GitHub is a web-based Git repository hosting service. It offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://india-001.azure-apim.net/apim/github" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="IssueBasicDetailsModel_title_def" />
+      <string name="IssueBasicDetailsModel_body_def" />
+      <object name="IssueBasicDetailsModel">
+        <property name="title" type="string" />
+        <property name="body" type="string" />
+      </object>
+      <string name="IssueDetailsModel_title_def" />
+      <string name="IssueDetailsModel_body_def" />
+      <integer name="IssueDetailsModel_number_def" />
+      <string name="IssueDetailsModel_state_def" />
+      <string name="IssueDetailsModel_created_at_def" />
+      <string name="IssueDetailsModel_repository_url_def" />
+      <object name="IssueDetailsModel">
+        <property name="title" type="string" />
+        <property name="body" type="string" />
+        <property name="assignee" typeRef="UserDetailsModel" />
+        <property name="number" type="integer" />
+        <property name="state" type="string" />
+        <property name="created_at" type="string" />
+        <property name="repository_url" type="string" />
+      </object>
+      <array typeRef="GeneralAPIModel" name="MultipleSearchFetchModel_body_def" />
+      <object name="MultipleSearchFetchModel">
+        <property name="body" typeRef="MultipleSearchFetchModel_body_def" />
+      </object>
+      <array typeRef="GeneralAPIModel" name="SingleSearchFetchModel_body_def" />
+      <object name="SingleSearchFetchModel">
+        <property name="body" typeRef="SingleSearchFetchModel_body_def" />
+      </object>
+      <array typeRef="GeneralAPIModel" name="MultipleFetchModel" />
+      <untypedObject name="GeneralAPIModel" />
+      <string name="IssueUpdateModel_title_def" />
+      <string name="IssueUpdateModel_body_def" />
+      <string name="IssueUpdateModel_assignee_def" />
+      <string name="IssueUpdateModel_state_def" />
+      <string name="IssueUpdateModel_state_reason_def" />
+      <string name="IssueUpdateModel_milestone_def" />
+      <string name="IssueUpdateModel_labels_def_items_def" />
+      <array type="string" name="IssueUpdateModel_labels_def" />
+      <string name="IssueUpdateModel_assignees_def_items_def" />
+      <array type="string" name="IssueUpdateModel_assignees_def" />
+      <object name="IssueUpdateModel">
+        <property name="title" type="string" />
+        <property name="body" type="string" />
+        <property name="assignee" type="string" />
+        <property name="state" type="string" />
+        <property name="state_reason" type="string" />
+        <property name="milestone" type="string" />
+        <property name="labels" typeRef="IssueUpdateModel_labels_def" />
+        <property name="assignees" typeRef="IssueUpdateModel_assignees_def" />
+      </object>
+      <string name="MilestoneUpdateModel_title_def" />
+      <string name="MilestoneUpdateModel_state_def" />
+      <string name="MilestoneUpdateModel_description_def" />
+      <string name="MilestoneUpdateModel_due_on_def" />
+      <object name="MilestoneUpdateModel">
+        <property name="title" type="string" />
+        <property name="state" type="string" />
+        <property name="description" type="string" />
+        <property name="due_on" type="string" />
+      </object>
+      <string name="UserDetailsModel_login_def" />
+      <integer name="UserDetailsModel_id_def" />
+      <string name="UserDetailsModel_node_id_def" />
+      <string name="UserDetailsModel_avatar_url_def" />
+      <string name="UserDetailsModel_gravatar_id_def" />
+      <string name="UserDetailsModel_url_def" />
+      <string name="UserDetailsModel_html_url_def" />
+      <string name="UserDetailsModel_followers_url_def" />
+      <string name="UserDetailsModel_following_url_def" />
+      <string name="UserDetailsModel_gists_url_def" />
+      <string name="UserDetailsModel_starred_url_def" />
+      <string name="UserDetailsModel_subscriptions_url_def" />
+      <string name="UserDetailsModel_organizations_url_def" />
+      <string name="UserDetailsModel_repos_url_def" />
+      <string name="UserDetailsModel_events_url_def" />
+      <string name="UserDetailsModel_received_events_url_def" />
+      <string name="UserDetailsModel_type_def" />
+      <boolean name="UserDetailsModel_site_admin_def" />
+      <string name="UserDetailsModel_name_def" />
+      <string name="UserDetailsModel_company_def" />
+      <string name="UserDetailsModel_blog_def" />
+      <string name="UserDetailsModel_location_def" />
+      <string name="UserDetailsModel_email_def" />
+      <boolean name="UserDetailsModel_hireable_def" />
+      <string name="UserDetailsModel_bio_def" />
+      <integer name="UserDetailsModel_public_repos_def" />
+      <integer name="UserDetailsModel_public_gists_def" />
+      <integer name="UserDetailsModel_followers_def" />
+      <integer name="UserDetailsModel_following_def" />
+      <dateTimeString name="UserDetailsModel_created_at_def" />
+      <dateTimeString name="UserDetailsModel_updated_at_def" />
+      <object name="UserDetailsModel">
+        <property name="login" type="string" />
+        <property name="id" type="integer" />
+        <property name="node_id" type="string" />
+        <property name="avatar_url" type="string" />
+        <property name="gravatar_id" type="string" />
+        <property name="url" type="string" />
+        <property name="html_url" type="string" />
+        <property name="followers_url" type="string" />
+        <property name="following_url" type="string" />
+        <property name="gists_url" type="string" />
+        <property name="starred_url" type="string" />
+        <property name="subscriptions_url" type="string" />
+        <property name="organizations_url" type="string" />
+        <property name="repos_url" type="string" />
+        <property name="events_url" type="string" />
+        <property name="received_events_url" type="string" />
+        <property name="type" type="string" />
+        <property name="site_admin" type="boolean" />
+        <property name="name" type="string" />
+        <property name="company" type="string" />
+        <property name="blog" type="string" />
+        <property name="location" type="string" />
+        <property name="email" type="string" />
+        <property name="hireable" type="boolean" />
+        <property name="bio" type="string" />
+        <property name="public_repos" type="integer" />
+        <property name="public_gists" type="integer" />
+        <property name="followers" type="integer" />
+        <property name="following" type="integer" />
+        <property name="created_at" typeRef="UserDetailsModel_created_at_def" />
+        <property name="updated_at" typeRef="UserDetailsModel_updated_at_def" />
+      </object>
+      <boolean name="Verification_verified_def" />
+      <string name="Verification_reason_def" />
+      <string name="Verification_payload_def" />
+      <string name="Verification_signature_def" />
+      <object name="Verification">
+        <property name="verified" type="boolean" />
+        <property name="reason" type="string" />
+        <property name="payload" type="string" />
+        <property name="signature" type="string" />
+      </object>
+      <string name="GitUser_name_def" />
+      <string name="GitUser_email_def" />
+      <string name="GitUser_date_def" />
+      <object name="GitUser">
+        <property name="name" type="string" />
+        <property name="email" type="string" />
+        <property name="date" type="string" />
+      </object>
+      <string name="GraphQlQuery_query_def" />
+      <object name="GraphQlQuery">
+        <property name="query" type="string" />
+      </object>
+      <string name="DiffEntry_filename_def" />
+      <integer name="DiffEntry_additions_def" />
+      <integer name="DiffEntry_deletions_def" />
+      <integer name="DiffEntry_changes_def" />
+      <string name="DiffEntry_status_def" />
+      <string name="DiffEntry_raw_url_def" />
+      <string name="DiffEntry_blob_url_def" />
+      <string name="DiffEntry_patch_def" />
+      <string name="DiffEntry_sha_def" />
+      <string name="DiffEntry_contents_url_def" />
+      <string name="DiffEntry_previous_filename_def" />
+      <object name="DiffEntry">
+        <property name="filename" type="string" />
+        <property name="additions" type="integer" />
+        <property name="deletions" type="integer" />
+        <property name="changes" type="integer" />
+        <property name="status" type="string" />
+        <property name="raw_url" type="string" />
+        <property name="blob_url" type="string" />
+        <property name="patch" type="string" />
+        <property name="sha" type="string" />
+        <property name="contents_url" type="string" />
+        <property name="previous_filename" type="string" />
+      </object>
+      <string name="Commit_url_def" />
+      <string name="Commit_sha_def" />
+      <string name="Commit_node_id_def" />
+      <string name="Commit_html_url_def" />
+      <string name="Commit_comments_url_def" />
+      <string name="Commit_commit_def_url_def" />
+      <string name="Commit_commit_def_message_def" />
+      <integer name="Commit_commit_def_comment_count_def" />
+      <string name="Commit_commit_def_tree_def_sha_def" />
+      <string dtype="hyperlink" name="Commit_commit_def_tree_def_url_def" />
+      <object name="Commit_commit_def_tree_def">
+        <property name="sha" type="string" />
+        <property name="url" type="string" dtype="hyperlink" />
+      </object>
+      <object name="Commit_commit_def">
+        <property name="url" type="string" />
+        <property name="author" typeRef="GitUser" />
+        <property name="committer" typeRef="GitUser" />
+        <property name="message" type="string" />
+        <property name="comment_count" type="integer" />
+        <property name="tree" typeRef="Commit_commit_def_tree_def" />
+        <property name="verification" typeRef="Verification" />
+      </object>
+      <string name="Commit_parents_def_items_def_sha_def" />
+      <string name="Commit_parents_def_items_def_url_def" />
+      <string name="Commit_parents_def_items_def_html_url_def" />
+      <object name="Commit_parents_def_items_def">
+        <property name="sha" type="string" />
+        <property name="url" type="string" />
+        <property name="html_url" type="string" />
+      </object>
+      <array typeRef="Commit_parents_def_items_def" name="Commit_parents_def" />
+      <integer name="Commit_stats_def_additions_def" />
+      <integer name="Commit_stats_def_deletions_def" />
+      <integer name="Commit_stats_def_total_def" />
+      <object name="Commit_stats_def">
+        <property name="additions" type="integer" />
+        <property name="deletions" type="integer" />
+        <property name="total" type="integer" />
+      </object>
+      <array typeRef="DiffEntry" name="Commit_files_def" />
+      <object name="Commit">
+        <property name="url" type="string" />
+        <property name="sha" type="string" />
+        <property name="node_id" type="string" />
+        <property name="html_url" type="string" />
+        <property name="comments_url" type="string" />
+        <property name="commit" typeRef="Commit_commit_def" />
+        <property name="author" typeRef="UserDetailsModel" />
+        <property name="committer" typeRef="UserDetailsModel" />
+        <property name="parents" typeRef="Commit_parents_def" />
+        <property name="stats" typeRef="Commit_stats_def" />
+        <property name="files" typeRef="Commit_files_def" />
+      </object>
+      <string name="RepositoryDispatchEvent_event_type_def" />
+      <untypedObject name="RepositoryDispatchEvent_client_payload_def" />
+      <object name="RepositoryDispatchEvent">
+        <property name="event_type" type="string" />
+        <property name="client_payload" typeRef="RepositoryDispatchEvent_client_payload_def" />
+      </object>
+      <string name="CommitComparison_url_def" />
+      <string name="CommitComparison_html_url_def" />
+      <string name="CommitComparison_permalink_url_def" />
+      <string name="CommitComparison_diff_url_def" />
+      <string name="CommitComparison_patch_url_def" />
+      <string name="CommitComparison_status_def" />
+      <integer name="CommitComparison_ahead_by_def" />
+      <integer name="CommitComparison_behind_by_def" />
+      <integer name="CommitComparison_total_commits_def" />
+      <array typeRef="Commit" name="CommitComparison_commits_def" />
+      <array typeRef="DiffEntry" name="CommitComparison_files_def" />
+      <object name="CommitComparison">
+        <property name="url" type="string" />
+        <property name="html_url" type="string" />
+        <property name="permalink_url" type="string" />
+        <property name="diff_url" type="string" />
+        <property name="patch_url" type="string" />
+        <property name="base_commit" typeRef="Commit" />
+        <property name="merge_base_commit" typeRef="Commit" />
+        <property name="status" type="string" />
+        <property name="ahead_by" type="integer" />
+        <property name="behind_by" type="integer" />
+        <property name="total_commits" type="integer" />
+        <property name="commits" typeRef="CommitComparison_commits_def" />
+        <property name="files" typeRef="CommitComparison_files_def" />
+      </object>
+      <string name="ActionsPublicKey_key_id_def" />
+      <string name="ActionsPublicKey_key_def" />
+      <integer name="ActionsPublicKey_id_def" />
+      <string name="ActionsPublicKey_url_def" />
+      <string name="ActionsPublicKey_title_def" />
+      <string name="ActionsPublicKey_created_at_def" />
+      <object name="ActionsPublicKey">
+        <property name="key_id" type="string" />
+        <property name="key" type="string" />
+        <property name="id" type="integer" />
+        <property name="url" type="string" />
+        <property name="title" type="string" />
+        <property name="created_at" type="string" />
+      </object>
+      <string name="CreateRepositorySecretRequest_encrypted_value_def" />
+      <string name="CreateRepositorySecretRequest_key_id_def" />
+      <object name="CreateRepositorySecretRequest">
+        <property name="encrypted_value" type="string" />
+        <property name="key_id" type="string" />
+      </object>
+      <string name="CreateRepositoryUsingTemplateRequest_owner_def" />
+      <string name="CreateRepositoryUsingTemplateRequest_name_def" />
+      <string name="CreateRepositoryUsingTemplateRequest_description_def" />
+      <boolean name="CreateRepositoryUsingTemplateRequest_private_def" />
+      <object name="CreateRepositoryUsingTemplateRequest">
+        <property name="owner" type="string" />
+        <property name="name" type="string" />
+        <property name="description" type="string" />
+        <property name="private" type="boolean" />
+      </object>
+      <string name="LicenseDetails_key_def" />
+      <string name="LicenseDetails_name_def" />
+      <string dtype="hyperlink" name="LicenseDetails_url_def" />
+      <string name="LicenseDetails_spdx_id_def" />
+      <string name="LicenseDetails_node_id_def" />
+      <string dtype="hyperlink" name="LicenseDetails_html_url_def" />
+      <object name="LicenseDetails">
+        <property name="key" type="string" />
+        <property name="name" type="string" />
+        <property name="url" type="string" dtype="hyperlink" />
+        <property name="spdx_id" type="string" />
+        <property name="node_id" type="string" />
+        <property name="html_url" type="string" dtype="hyperlink" />
+      </object>
+      <integer name="RepositoryMiniDetails_id_def" />
+      <string name="RepositoryMiniDetails_node_id_def" />
+      <string name="RepositoryMiniDetails_name_def" />
+      <string name="RepositoryMiniDetails_full_name_def" />
+      <boolean name="RepositoryMiniDetails_permissions_def_admin_def" />
+      <boolean name="RepositoryMiniDetails_permissions_def_pull_def" />
+      <boolean name="RepositoryMiniDetails_permissions_def_triage_def" />
+      <boolean name="RepositoryMiniDetails_permissions_def_push_def" />
+      <boolean name="RepositoryMiniDetails_permissions_def_maintain_def" />
+      <object name="RepositoryMiniDetails_permissions_def">
+        <property name="admin" type="boolean" />
+        <property name="pull" type="boolean" />
+        <property name="triage" type="boolean" />
+        <property name="push" type="boolean" />
+        <property name="maintain" type="boolean" />
+      </object>
+      <boolean name="RepositoryMiniDetails_private_def" />
+      <string name="RepositoryMiniDetails_description_def" />
+      <string dtype="hyperlink" name="RepositoryMiniDetails_homepage_def" />
+      <string name="RepositoryMiniDetails_language_def" />
+      <boolean name="RepositoryMiniDetails_archived_def" />
+      <boolean name="RepositoryMiniDetails_disabled_def" />
+      <string name="RepositoryMiniDetails_visibility_def" />
+      <dateTimeString name="RepositoryMiniDetails_created_at_def" />
+      <dateTimeString name="RepositoryMiniDetails_updated_at_def" />
+      <boolean name="RepositoryMiniDetails_allow_rebase_merge_def" />
+      <boolean name="RepositoryMiniDetails_allow_squash_merge_def" />
+      <boolean name="RepositoryMiniDetails_delete_branch_on_merge_def" />
+      <boolean name="RepositoryMiniDetails_allow_merge_commit_def" />
+      <string name="RepositoryMiniDetails_master_branch_def" />
+      <object name="RepositoryMiniDetails">
+        <property name="id" type="integer" />
+        <property name="node_id" type="string" />
+        <property name="name" type="string" />
+        <property name="full_name" type="string" />
+        <property name="permissions" typeRef="RepositoryMiniDetails_permissions_def" />
+        <property name="owner" typeRef="UserDetailsModel" />
+        <property name="private" type="boolean" />
+        <property name="description" type="string" />
+        <property name="homepage" type="string" dtype="hyperlink" />
+        <property name="language" type="string" />
+        <property name="archived" type="boolean" />
+        <property name="disabled" type="boolean" />
+        <property name="visibility" type="string" />
+        <property name="created_at" typeRef="RepositoryMiniDetails_created_at_def" />
+        <property name="updated_at" typeRef="RepositoryMiniDetails_updated_at_def" />
+        <property name="allow_rebase_merge" type="boolean" />
+        <property name="allow_squash_merge" type="boolean" />
+        <property name="delete_branch_on_merge" type="boolean" />
+        <property name="allow_merge_commit" type="boolean" />
+        <property name="master_branch" type="string" />
+      </object>
+      <integer name="RepositoryDetails_id_def" />
+      <string name="RepositoryDetails_node_id_def" />
+      <string name="RepositoryDetails_name_def" />
+      <string name="RepositoryDetails_full_name_def" />
+      <integer name="RepositoryDetails_forks_def" />
+      <boolean name="RepositoryDetails_permissions_def_admin_def" />
+      <boolean name="RepositoryDetails_permissions_def_pull_def" />
+      <boolean name="RepositoryDetails_permissions_def_triage_def" />
+      <boolean name="RepositoryDetails_permissions_def_push_def" />
+      <boolean name="RepositoryDetails_permissions_def_maintain_def" />
+      <object name="RepositoryDetails_permissions_def">
+        <property name="admin" type="boolean" />
+        <property name="pull" type="boolean" />
+        <property name="triage" type="boolean" />
+        <property name="push" type="boolean" />
+        <property name="maintain" type="boolean" />
+      </object>
+      <boolean name="RepositoryDetails_private_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_html_url_def" />
+      <string name="RepositoryDetails_description_def" />
+      <boolean name="RepositoryDetails_fork_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_url_def" />
+      <string name="RepositoryDetails_archive_url_def" />
+      <string name="RepositoryDetails_assignees_url_def" />
+      <string name="RepositoryDetails_blobs_url_def" />
+      <string name="RepositoryDetails_branches_url_def" />
+      <string name="RepositoryDetails_collaborators_url_def" />
+      <string name="RepositoryDetails_comments_url_def" />
+      <string name="RepositoryDetails_commits_url_def" />
+      <string name="RepositoryDetails_compare_url_def" />
+      <string name="RepositoryDetails_contents_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_contributors_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_deployments_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_downloads_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_events_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_forks_url_def" />
+      <string name="RepositoryDetails_git_commits_url_def" />
+      <string name="RepositoryDetails_git_refs_url_def" />
+      <string name="RepositoryDetails_git_tags_url_def" />
+      <string name="RepositoryDetails_git_url_def" />
+      <string name="RepositoryDetails_issue_comment_url_def" />
+      <string name="RepositoryDetails_issue_events_url_def" />
+      <string name="RepositoryDetails_issues_url_def" />
+      <string name="RepositoryDetails_keys_url_def" />
+      <string name="RepositoryDetails_labels_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_languages_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_merges_url_def" />
+      <string name="RepositoryDetails_milestones_url_def" />
+      <string name="RepositoryDetails_notifications_url_def" />
+      <string name="RepositoryDetails_pulls_url_def" />
+      <string name="RepositoryDetails_releases_url_def" />
+      <string name="RepositoryDetails_ssh_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_stargazers_url_def" />
+      <string name="RepositoryDetails_statuses_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_subscribers_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_subscription_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_tags_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_teams_url_def" />
+      <string name="RepositoryDetails_trees_url_def" />
+      <string name="RepositoryDetails_clone_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_mirror_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_hooks_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_svn_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_homepage_def" />
+      <string name="RepositoryDetails_language_def" />
+      <integer name="RepositoryDetails_forks_count_def" />
+      <integer name="RepositoryDetails_stargazers_count_def" />
+      <integer name="RepositoryDetails_watchers_count_def" />
+      <integer name="RepositoryDetails_size_def" />
+      <string name="RepositoryDetails_default_branch_def" />
+      <integer name="RepositoryDetails_open_issues_count_def" />
+      <boolean name="RepositoryDetails_is_template_def" />
+      <string name="RepositoryDetails_topics_def_items_def" />
+      <array type="string" name="RepositoryDetails_topics_def" />
+      <boolean name="RepositoryDetails_has_issues_def" />
+      <boolean name="RepositoryDetails_has_projects_def" />
+      <boolean name="RepositoryDetails_has_wiki_def" />
+      <boolean name="RepositoryDetails_has_pages_def" />
+      <boolean name="RepositoryDetails_has_downloads_def" />
+      <boolean name="RepositoryDetails_archived_def" />
+      <boolean name="RepositoryDetails_disabled_def" />
+      <string name="RepositoryDetails_visibility_def" />
+      <dateTimeString name="RepositoryDetails_pushed_at_def" />
+      <dateTimeString name="RepositoryDetails_created_at_def" />
+      <dateTimeString name="RepositoryDetails_updated_at_def" />
+      <boolean name="RepositoryDetails_allow_rebase_merge_def" />
+      <integer name="RepositoryDetails_template_repository_def_id_def" />
+      <string name="RepositoryDetails_template_repository_def_node_id_def" />
+      <string name="RepositoryDetails_template_repository_def_name_def" />
+      <string name="RepositoryDetails_template_repository_def_full_name_def" />
+      <boolean name="RepositoryDetails_template_repository_def_private_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_template_repository_def_html_url_def" />
+      <string name="RepositoryDetails_template_repository_def_description_def" />
+      <boolean name="RepositoryDetails_template_repository_def_fork_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_template_repository_def_url_def" />
+      <string name="RepositoryDetails_template_repository_def_archive_url_def" />
+      <string name="RepositoryDetails_template_repository_def_assignees_url_def" />
+      <string name="RepositoryDetails_template_repository_def_blobs_url_def" />
+      <string name="RepositoryDetails_template_repository_def_branches_url_def" />
+      <string name="RepositoryDetails_template_repository_def_collaborators_url_def" />
+      <string name="RepositoryDetails_template_repository_def_comments_url_def" />
+      <string name="RepositoryDetails_template_repository_def_commits_url_def" />
+      <string name="RepositoryDetails_template_repository_def_compare_url_def" />
+      <string name="RepositoryDetails_template_repository_def_contents_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_template_repository_def_contributors_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_template_repository_def_deployments_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_template_repository_def_downloads_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_template_repository_def_events_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_template_repository_def_forks_url_def" />
+      <string name="RepositoryDetails_template_repository_def_git_commits_url_def" />
+      <string name="RepositoryDetails_template_repository_def_git_refs_url_def" />
+      <string name="RepositoryDetails_template_repository_def_git_tags_url_def" />
+      <string name="RepositoryDetails_template_repository_def_git_url_def" />
+      <string name="RepositoryDetails_template_repository_def_issue_comment_url_def" />
+      <string name="RepositoryDetails_template_repository_def_issue_events_url_def" />
+      <string name="RepositoryDetails_template_repository_def_issues_url_def" />
+      <string name="RepositoryDetails_template_repository_def_keys_url_def" />
+      <string name="RepositoryDetails_template_repository_def_labels_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_template_repository_def_languages_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_template_repository_def_merges_url_def" />
+      <string name="RepositoryDetails_template_repository_def_milestones_url_def" />
+      <string name="RepositoryDetails_template_repository_def_notifications_url_def" />
+      <string name="RepositoryDetails_template_repository_def_pulls_url_def" />
+      <string name="RepositoryDetails_template_repository_def_releases_url_def" />
+      <string name="RepositoryDetails_template_repository_def_ssh_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_template_repository_def_stargazers_url_def" />
+      <string name="RepositoryDetails_template_repository_def_statuses_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_template_repository_def_subscribers_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_template_repository_def_subscription_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_template_repository_def_tags_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_template_repository_def_teams_url_def" />
+      <string name="RepositoryDetails_template_repository_def_trees_url_def" />
+      <string name="RepositoryDetails_template_repository_def_clone_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_template_repository_def_mirror_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_template_repository_def_hooks_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_template_repository_def_svn_url_def" />
+      <string dtype="hyperlink" name="RepositoryDetails_template_repository_def_homepage_def" />
+      <string name="RepositoryDetails_template_repository_def_language_def" />
+      <integer name="RepositoryDetails_template_repository_def_forks_count_def" />
+      <integer name="RepositoryDetails_template_repository_def_stargazers_count_def" />
+      <integer name="RepositoryDetails_template_repository_def_watchers_count_def" />
+      <integer name="RepositoryDetails_template_repository_def_size_def" />
+      <string name="RepositoryDetails_template_repository_def_default_branch_def" />
+      <integer name="RepositoryDetails_template_repository_def_open_issues_count_def" />
+      <boolean name="RepositoryDetails_template_repository_def_is_template_def" />
+      <string name="RepositoryDetails_template_repository_def_topics_def_items_def" />
+      <array type="string" name="RepositoryDetails_template_repository_def_topics_def" />
+      <boolean name="RepositoryDetails_template_repository_def_has_issues_def" />
+      <boolean name="RepositoryDetails_template_repository_def_has_projects_def" />
+      <boolean name="RepositoryDetails_template_repository_def_has_wiki_def" />
+      <boolean name="RepositoryDetails_template_repository_def_has_pages_def" />
+      <boolean name="RepositoryDetails_template_repository_def_has_downloads_def" />
+      <boolean name="RepositoryDetails_template_repository_def_archived_def" />
+      <boolean name="RepositoryDetails_template_repository_def_disabled_def" />
+      <string name="RepositoryDetails_template_repository_def_visibility_def" />
+      <dateTimeString name="RepositoryDetails_template_repository_def_pushed_at_def" />
+      <dateTimeString name="RepositoryDetails_template_repository_def_created_at_def" />
+      <dateTimeString name="RepositoryDetails_template_repository_def_updated_at_def" />
+      <boolean name="RepositoryDetails_template_repository_def_permissions_def_admin_def" />
+      <boolean name="RepositoryDetails_template_repository_def_permissions_def_push_def" />
+      <boolean name="RepositoryDetails_template_repository_def_permissions_def_pull_def" />
+      <object name="RepositoryDetails_template_repository_def_permissions_def">
+        <property name="admin" type="boolean" />
+        <property name="push" type="boolean" />
+        <property name="pull" type="boolean" />
+      </object>
+      <boolean name="RepositoryDetails_template_repository_def_allow_rebase_merge_def" />
+      <string name="RepositoryDetails_template_repository_def_template_repository_def" />
+      <string name="RepositoryDetails_template_repository_def_temp_clone_token_def" />
+      <boolean name="RepositoryDetails_template_repository_def_allow_squash_merge_def" />
+      <boolean name="RepositoryDetails_template_repository_def_delete_branch_on_merge_def" />
+      <boolean name="RepositoryDetails_template_repository_def_allow_merge_commit_def" />
+      <integer name="RepositoryDetails_template_repository_def_subscribers_count_def" />
+      <integer name="RepositoryDetails_template_repository_def_network_count_def" />
+      <object name="RepositoryDetails_template_repository_def">
+        <property name="id" type="integer" />
+        <property name="node_id" type="string" />
+        <property name="name" type="string" />
+        <property name="full_name" type="string" />
+        <property name="owner" typeRef="UserDetailsModel" />
+        <property name="private" type="boolean" />
+        <property name="html_url" type="string" dtype="hyperlink" />
+        <property name="description" type="string" />
+        <property name="fork" type="boolean" />
+        <property name="url" type="string" dtype="hyperlink" />
+        <property name="archive_url" type="string" />
+        <property name="assignees_url" type="string" />
+        <property name="blobs_url" type="string" />
+        <property name="branches_url" type="string" />
+        <property name="collaborators_url" type="string" />
+        <property name="comments_url" type="string" />
+        <property name="commits_url" type="string" />
+        <property name="compare_url" type="string" />
+        <property name="contents_url" type="string" />
+        <property name="contributors_url" type="string" dtype="hyperlink" />
+        <property name="deployments_url" type="string" dtype="hyperlink" />
+        <property name="downloads_url" type="string" dtype="hyperlink" />
+        <property name="events_url" type="string" dtype="hyperlink" />
+        <property name="forks_url" type="string" dtype="hyperlink" />
+        <property name="git_commits_url" type="string" />
+        <property name="git_refs_url" type="string" />
+        <property name="git_tags_url" type="string" />
+        <property name="git_url" type="string" />
+        <property name="issue_comment_url" type="string" />
+        <property name="issue_events_url" type="string" />
+        <property name="issues_url" type="string" />
+        <property name="keys_url" type="string" />
+        <property name="labels_url" type="string" />
+        <property name="languages_url" type="string" dtype="hyperlink" />
+        <property name="merges_url" type="string" dtype="hyperlink" />
+        <property name="milestones_url" type="string" />
+        <property name="notifications_url" type="string" />
+        <property name="pulls_url" type="string" />
+        <property name="releases_url" type="string" />
+        <property name="ssh_url" type="string" />
+        <property name="stargazers_url" type="string" dtype="hyperlink" />
+        <property name="statuses_url" type="string" />
+        <property name="subscribers_url" type="string" dtype="hyperlink" />
+        <property name="subscription_url" type="string" dtype="hyperlink" />
+        <property name="tags_url" type="string" dtype="hyperlink" />
+        <property name="teams_url" type="string" dtype="hyperlink" />
+        <property name="trees_url" type="string" />
+        <property name="clone_url" type="string" />
+        <property name="mirror_url" type="string" dtype="hyperlink" />
+        <property name="hooks_url" type="string" dtype="hyperlink" />
+        <property name="svn_url" type="string" dtype="hyperlink" />
+        <property name="homepage" type="string" dtype="hyperlink" />
+        <property name="language" type="string" />
+        <property name="forks_count" type="integer" />
+        <property name="stargazers_count" type="integer" />
+        <property name="watchers_count" type="integer" />
+        <property name="size" type="integer" />
+        <property name="default_branch" type="string" />
+        <property name="open_issues_count" type="integer" />
+        <property name="is_template" type="boolean" />
+        <property name="topics" typeRef="RepositoryDetails_template_repository_def_topics_def" />
+        <property name="has_issues" type="boolean" />
+        <property name="has_projects" type="boolean" />
+        <property name="has_wiki" type="boolean" />
+        <property name="has_pages" type="boolean" />
+        <property name="has_downloads" type="boolean" />
+        <property name="archived" type="boolean" />
+        <property name="disabled" type="boolean" />
+        <property name="visibility" type="string" />
+        <property name="pushed_at" typeRef="RepositoryDetails_template_repository_def_pushed_at_def" />
+        <property name="created_at" typeRef="RepositoryDetails_template_repository_def_created_at_def" />
+        <property name="updated_at" typeRef="RepositoryDetails_template_repository_def_updated_at_def" />
+        <property name="permissions" typeRef="RepositoryDetails_template_repository_def_permissions_def" />
+        <property name="allow_rebase_merge" type="boolean" />
+        <property name="template_repository" type="string" />
+        <property name="temp_clone_token" type="string" />
+        <property name="allow_squash_merge" type="boolean" />
+        <property name="delete_branch_on_merge" type="boolean" />
+        <property name="allow_merge_commit" type="boolean" />
+        <property name="subscribers_count" type="integer" />
+        <property name="network_count" type="integer" />
+      </object>
+      <string name="RepositoryDetails_temp_clone_token_def" />
+      <boolean name="RepositoryDetails_allow_squash_merge_def" />
+      <boolean name="RepositoryDetails_delete_branch_on_merge_def" />
+      <boolean name="RepositoryDetails_allow_merge_commit_def" />
+      <integer name="RepositoryDetails_subscribers_count_def" />
+      <integer name="RepositoryDetails_network_count_def" />
+      <integer name="RepositoryDetails_open_issues_def" />
+      <integer name="RepositoryDetails_watchers_def" />
+      <string name="RepositoryDetails_master_branch_def" />
+      <string name="RepositoryDetails_starred_at_def" />
+      <object name="RepositoryDetails">
+        <property name="id" type="integer" />
+        <property name="node_id" type="string" />
+        <property name="name" type="string" />
+        <property name="full_name" type="string" />
+        <property name="license" typeRef="LicenseDetails" />
+        <property name="forks" type="integer" />
+        <property name="permissions" typeRef="RepositoryDetails_permissions_def" />
+        <property name="owner" typeRef="UserDetailsModel" />
+        <property name="private" type="boolean" />
+        <property name="html_url" type="string" dtype="hyperlink" />
+        <property name="description" type="string" />
+        <property name="fork" type="boolean" />
+        <property name="url" type="string" dtype="hyperlink" />
+        <property name="archive_url" type="string" />
+        <property name="assignees_url" type="string" />
+        <property name="blobs_url" type="string" />
+        <property name="branches_url" type="string" />
+        <property name="collaborators_url" type="string" />
+        <property name="comments_url" type="string" />
+        <property name="commits_url" type="string" />
+        <property name="compare_url" type="string" />
+        <property name="contents_url" type="string" />
+        <property name="contributors_url" type="string" dtype="hyperlink" />
+        <property name="deployments_url" type="string" dtype="hyperlink" />
+        <property name="downloads_url" type="string" dtype="hyperlink" />
+        <property name="events_url" type="string" dtype="hyperlink" />
+        <property name="forks_url" type="string" dtype="hyperlink" />
+        <property name="git_commits_url" type="string" />
+        <property name="git_refs_url" type="string" />
+        <property name="git_tags_url" type="string" />
+        <property name="git_url" type="string" />
+        <property name="issue_comment_url" type="string" />
+        <property name="issue_events_url" type="string" />
+        <property name="issues_url" type="string" />
+        <property name="keys_url" type="string" />
+        <property name="labels_url" type="string" />
+        <property name="languages_url" type="string" dtype="hyperlink" />
+        <property name="merges_url" type="string" dtype="hyperlink" />
+        <property name="milestones_url" type="string" />
+        <property name="notifications_url" type="string" />
+        <property name="pulls_url" type="string" />
+        <property name="releases_url" type="string" />
+        <property name="ssh_url" type="string" />
+        <property name="stargazers_url" type="string" dtype="hyperlink" />
+        <property name="statuses_url" type="string" />
+        <property name="subscribers_url" type="string" dtype="hyperlink" />
+        <property name="subscription_url" type="string" dtype="hyperlink" />
+        <property name="tags_url" type="string" dtype="hyperlink" />
+        <property name="teams_url" type="string" dtype="hyperlink" />
+        <property name="trees_url" type="string" />
+        <property name="clone_url" type="string" />
+        <property name="mirror_url" type="string" dtype="hyperlink" />
+        <property name="hooks_url" type="string" dtype="hyperlink" />
+        <property name="svn_url" type="string" dtype="hyperlink" />
+        <property name="homepage" type="string" dtype="hyperlink" />
+        <property name="language" type="string" />
+        <property name="forks_count" type="integer" />
+        <property name="stargazers_count" type="integer" />
+        <property name="watchers_count" type="integer" />
+        <property name="size" type="integer" />
+        <property name="default_branch" type="string" />
+        <property name="open_issues_count" type="integer" />
+        <property name="is_template" type="boolean" />
+        <property name="topics" typeRef="RepositoryDetails_topics_def" />
+        <property name="has_issues" type="boolean" />
+        <property name="has_projects" type="boolean" />
+        <property name="has_wiki" type="boolean" />
+        <property name="has_pages" type="boolean" />
+        <property name="has_downloads" type="boolean" />
+        <property name="archived" type="boolean" />
+        <property name="disabled" type="boolean" />
+        <property name="visibility" type="string" />
+        <property name="pushed_at" typeRef="RepositoryDetails_pushed_at_def" />
+        <property name="created_at" typeRef="RepositoryDetails_created_at_def" />
+        <property name="updated_at" typeRef="RepositoryDetails_updated_at_def" />
+        <property name="allow_rebase_merge" type="boolean" />
+        <property name="template_repository" typeRef="RepositoryDetails_template_repository_def" />
+        <property name="temp_clone_token" type="string" />
+        <property name="allow_squash_merge" type="boolean" />
+        <property name="delete_branch_on_merge" type="boolean" />
+        <property name="allow_merge_commit" type="boolean" />
+        <property name="subscribers_count" type="integer" />
+        <property name="network_count" type="integer" />
+        <property name="open_issues" type="integer" />
+        <property name="watchers" type="integer" />
+        <property name="master_branch" type="string" />
+        <property name="starred_at" type="string" />
+      </object>
+      <string name="CreateReferenceRequest_ref_def" />
+      <string name="CreateReferenceRequest_sha_def" />
+      <object name="CreateReferenceRequest">
+        <property name="ref" type="string" />
+        <property name="sha" type="string" />
+      </object>
+      <string name="GitReference_ref_def" />
+      <string name="GitReference_node_id_def" />
+      <string dtype="hyperlink" name="GitReference_url_def" />
+      <string name="GitReference_object_def_type_def" />
+      <string name="GitReference_object_def_sha_def" />
+      <string dtype="hyperlink" name="GitReference_object_def_url_def" />
+      <object name="GitReference_object_def">
+        <property name="type" type="string" />
+        <property name="sha" type="string" />
+        <property name="url" type="string" dtype="hyperlink" />
+      </object>
+      <object name="GitReference">
+        <property name="ref" type="string" />
+        <property name="node_id" type="string" />
+        <property name="url" type="string" dtype="hyperlink" />
+        <property name="object" typeRef="GitReference_object_def" />
+      </object>
+      <string name="PullRequestCreateRequest_title_def" />
+      <string name="PullRequestCreateRequest_head_def" />
+      <string name="PullRequestCreateRequest_base_def" />
+      <string name="PullRequestCreateRequest_body_def" />
+      <boolean name="PullRequestCreateRequest_maintainer_can_modify_def" />
+      <boolean name="PullRequestCreateRequest_draft_def" />
+      <object name="PullRequestCreateRequest">
+        <property name="title" type="string" />
+        <property name="head" type="string" />
+        <property name="base" type="string" />
+        <property name="body" type="string" />
+        <property name="maintainer_can_modify" type="boolean" />
+        <property name="draft" type="boolean" />
+      </object>
+      <string name="PullRequestMergeRequest_commitTitle_def" />
+      <string name="PullRequestMergeRequest_commitMessage_def" />
+      <string name="PullRequestMergeRequest_sha_def" />
+      <string name="PullRequestMergeRequest_mergeMethod_def" />
+      <object name="PullRequestMergeRequest">
+        <property name="commitTitle" type="string" />
+        <property name="commitMessage" type="string" />
+        <property name="sha" type="string" />
+        <property name="mergeMethod" type="string" />
+      </object>
+      <string name="PullRequestMergeResult_sha_def" />
+      <boolean name="PullRequestMergeResult_merged_def" />
+      <string name="PullRequestMergeResult_message_def" />
+      <object name="PullRequestMergeResult">
+        <property name="sha" type="string" />
+        <property name="merged" type="boolean" />
+        <property name="message" type="string" />
+      </object>
+      <string name="PullRequestUpdateRequest_title_def" />
+      <string name="PullRequestUpdateRequest_body_def" />
+      <string name="PullRequestUpdateRequest_state_def" />
+      <string name="PullRequestUpdateRequest_base_def" />
+      <boolean name="PullRequestUpdateRequest_maintainer_can_modify_def" />
+      <object name="PullRequestUpdateRequest">
+        <property name="title" type="string" />
+        <property name="body" type="string" />
+        <property name="state" type="string" />
+        <property name="base" type="string" />
+        <property name="maintainer_can_modify" type="boolean" />
+      </object>
+      <string dtype="hyperlink" name="Milestone_url_def" />
+      <string dtype="hyperlink" name="Milestone_html_url_def" />
+      <string dtype="hyperlink" name="Milestone_labels_url_def" />
+      <integer name="Milestone_id_def" />
+      <string name="Milestone_node_id_def" />
+      <integer name="Milestone_number_def" />
+      <string name="Milestone_state_def" />
+      <string name="Milestone_title_def" />
+      <string name="Milestone_description_def" />
+      <integer name="Milestone_open_issues_def" />
+      <integer name="Milestone_closed_issues_def" />
+      <dateTimeString name="Milestone_created_at_def" />
+      <dateTimeString name="Milestone_updated_at_def" />
+      <dateTimeString name="Milestone_closed_at_def" />
+      <dateTimeString name="Milestone_due_on_def" />
+      <object name="Milestone">
+        <property name="url" type="string" dtype="hyperlink" />
+        <property name="html_url" type="string" dtype="hyperlink" />
+        <property name="labels_url" type="string" dtype="hyperlink" />
+        <property name="id" type="integer" />
+        <property name="node_id" type="string" />
+        <property name="number" type="integer" />
+        <property name="state" type="string" />
+        <property name="title" type="string" />
+        <property name="description" type="string" />
+        <property name="creator" typeRef="UserDetailsModel" />
+        <property name="open_issues" type="integer" />
+        <property name="closed_issues" type="integer" />
+        <property name="created_at" typeRef="Milestone_created_at_def" />
+        <property name="updated_at" typeRef="Milestone_updated_at_def" />
+        <property name="closed_at" typeRef="Milestone_closed_at_def" />
+        <property name="due_on" typeRef="Milestone_due_on_def" />
+      </object>
+      <integer name="Label_id_def" />
+      <string name="Label_node_id_def" />
+      <string dtype="hyperlink" name="Label_url_def" />
+      <string name="Label_name_def" />
+      <string name="Label_description_def" />
+      <string name="Label_color_def" />
+      <boolean name="Label_default_def" />
+      <object name="Label">
+        <property name="id" type="integer" />
+        <property name="node_id" type="string" />
+        <property name="url" type="string" dtype="hyperlink" />
+        <property name="name" type="string" />
+        <property name="description" type="string" />
+        <property name="color" type="string" />
+        <property name="default" type="boolean" />
+      </object>
+      <integer name="TeamDetails_id_def" />
+      <string name="TeamDetails_node_id_def" />
+      <string dtype="hyperlink" name="TeamDetails_url_def" />
+      <string name="TeamDetails_members_url_def" />
+      <string name="TeamDetails_name_def" />
+      <string name="TeamDetails_description_def" />
+      <string name="TeamDetails_permission_def" />
+      <string name="TeamDetails_privacy_def" />
+      <string dtype="hyperlink" name="TeamDetails_html_url_def" />
+      <string dtype="hyperlink" name="TeamDetails_repositories_url_def" />
+      <string name="TeamDetails_slug_def" />
+      <string name="TeamDetails_ldap_dn_def" />
+      <object name="TeamDetails">
+        <property name="id" type="integer" />
+        <property name="node_id" type="string" />
+        <property name="url" type="string" dtype="hyperlink" />
+        <property name="members_url" type="string" />
+        <property name="name" type="string" />
+        <property name="description" type="string" />
+        <property name="permission" type="string" />
+        <property name="privacy" type="string" />
+        <property name="html_url" type="string" dtype="hyperlink" />
+        <property name="repositories_url" type="string" dtype="hyperlink" />
+        <property name="slug" type="string" />
+        <property name="ldap_dn" type="string" />
+      </object>
+      <string name="Link_href_def" />
+      <object name="Link">
+        <property name="href" type="string" />
+      </object>
+      <string dtype="hyperlink" name="PullRequest_url_def" />
+      <integer name="PullRequest_id_def" />
+      <string name="PullRequest_node_id_def" />
+      <string dtype="hyperlink" name="PullRequest_html_url_def" />
+      <string dtype="hyperlink" name="PullRequest_diff_url_def" />
+      <string dtype="hyperlink" name="PullRequest_patch_url_def" />
+      <string dtype="hyperlink" name="PullRequest_issue_url_def" />
+      <string dtype="hyperlink" name="PullRequest_commits_url_def" />
+      <string dtype="hyperlink" name="PullRequest_review_comments_url_def" />
+      <string name="PullRequest_review_comment_url_def" />
+      <string dtype="hyperlink" name="PullRequest_comments_url_def" />
+      <string dtype="hyperlink" name="PullRequest_statuses_url_def" />
+      <integer name="PullRequest_number_def" />
+      <string name="PullRequest_state_def" />
+      <boolean name="PullRequest_locked_def" />
+      <string name="PullRequest_title_def" />
+      <string name="PullRequest_body_def" />
+      <array typeRef="Label" name="PullRequest_labels_def" />
+      <string name="PullRequest_active_lock_reason_def" />
+      <dateTimeString name="PullRequest_created_at_def" />
+      <dateTimeString name="PullRequest_updated_at_def" />
+      <dateTimeString name="PullRequest_closed_at_def" />
+      <dateTimeString name="PullRequest_merged_at_def" />
+      <string name="PullRequest_merge_commit_sha_def" />
+      <array typeRef="UserDetailsModel" name="PullRequest_assignees_def" />
+      <array typeRef="UserDetailsModel" name="PullRequest_requested_reviewers_def" />
+      <array typeRef="TeamDetails" name="PullRequest_requested_teams_def" />
+      <string name="PullRequest_head_def_label_def" />
+      <string name="PullRequest_head_def_ref_def" />
+      <string name="PullRequest_head_def_sha_def" />
+      <object name="PullRequest_head_def">
+        <property name="label" type="string" />
+        <property name="ref" type="string" />
+        <property name="repo" typeRef="RepositoryMiniDetails" />
+        <property name="sha" type="string" />
+        <property name="user" typeRef="UserDetailsModel" />
+      </object>
+      <string name="PullRequest_base_def_label_def" />
+      <string name="PullRequest_base_def_ref_def" />
+      <string name="PullRequest_base_def_sha_def" />
+      <object name="PullRequest_base_def">
+        <property name="label" type="string" />
+        <property name="ref" type="string" />
+        <property name="repo" typeRef="RepositoryMiniDetails" />
+        <property name="sha" type="string" />
+        <property name="user" typeRef="UserDetailsModel" />
+      </object>
+      <string name="PullRequest_author_association_def" />
+      <boolean name="PullRequest_draft_def" />
+      <boolean name="PullRequest_merged_def" />
+      <boolean name="PullRequest_mergeable_def" />
+      <boolean name="PullRequest_rebaseable_def" />
+      <string name="PullRequest_mergeable_state_def" />
+      <integer name="PullRequest_comments_def" />
+      <integer name="PullRequest_review_comments_def" />
+      <boolean name="PullRequest_maintainer_can_modify_def" />
+      <integer name="PullRequest_commits_def" />
+      <integer name="PullRequest_additions_def" />
+      <integer name="PullRequest_deletions_def" />
+      <integer name="PullRequest_changed_files_def" />
+      <object name="PullRequest">
+        <property name="url" type="string" dtype="hyperlink" />
+        <property name="id" type="integer" />
+        <property name="node_id" type="string" />
+        <property name="html_url" type="string" dtype="hyperlink" />
+        <property name="diff_url" type="string" dtype="hyperlink" />
+        <property name="patch_url" type="string" dtype="hyperlink" />
+        <property name="issue_url" type="string" dtype="hyperlink" />
+        <property name="commits_url" type="string" dtype="hyperlink" />
+        <property name="review_comments_url" type="string" dtype="hyperlink" />
+        <property name="review_comment_url" type="string" />
+        <property name="comments_url" type="string" dtype="hyperlink" />
+        <property name="statuses_url" type="string" dtype="hyperlink" />
+        <property name="number" type="integer" />
+        <property name="state" type="string" />
+        <property name="locked" type="boolean" />
+        <property name="title" type="string" />
+        <property name="user" typeRef="UserDetailsModel" />
+        <property name="body" type="string" />
+        <property name="labels" typeRef="PullRequest_labels_def" />
+        <property name="milestone" typeRef="Milestone" />
+        <property name="active_lock_reason" type="string" />
+        <property name="created_at" typeRef="PullRequest_created_at_def" />
+        <property name="updated_at" typeRef="PullRequest_updated_at_def" />
+        <property name="closed_at" typeRef="PullRequest_closed_at_def" />
+        <property name="merged_at" typeRef="PullRequest_merged_at_def" />
+        <property name="merge_commit_sha" type="string" />
+        <property name="assignee" typeRef="UserDetailsModel" />
+        <property name="assignees" typeRef="PullRequest_assignees_def" />
+        <property name="requested_reviewers" typeRef="PullRequest_requested_reviewers_def" />
+        <property name="requested_teams" typeRef="PullRequest_requested_teams_def" />
+        <property name="head" typeRef="PullRequest_head_def" />
+        <property name="base" typeRef="PullRequest_base_def" />
+        <property name="author_association" type="string" />
+        <property name="draft" type="boolean" />
+        <property name="merged" type="boolean" />
+        <property name="mergeable" type="boolean" />
+        <property name="rebaseable" type="boolean" />
+        <property name="mergeable_state" type="string" />
+        <property name="merged_by" typeRef="UserDetailsModel" />
+        <property name="comments" type="integer" />
+        <property name="review_comments" type="integer" />
+        <property name="maintainer_can_modify" type="boolean" />
+        <property name="commits" type="integer" />
+        <property name="additions" type="integer" />
+        <property name="deletions" type="integer" />
+        <property name="changed_files" type="integer" />
+      </object>
+      <string name="PullRequestFile_sha_def" />
+      <string name="PullRequestFile_filename_def" />
+      <string name="PullRequestFile_status_def" />
+      <integer name="PullRequestFile_additions_def" />
+      <integer name="PullRequestFile_deletions_def" />
+      <integer name="PullRequestFile_changes_def" />
+      <string name="PullRequestFile_blob_url_def" />
+      <string name="PullRequestFile_raw_url_def" />
+      <string name="PullRequestFile_contents_url_def" />
+      <string name="PullRequestFile_patch_def" />
+      <object name="PullRequestFile">
+        <property name="sha" type="string" />
+        <property name="filename" type="string" />
+        <property name="status" type="string" />
+        <property name="additions" type="integer" />
+        <property name="deletions" type="integer" />
+        <property name="changes" type="integer" />
+        <property name="blob_url" type="string" />
+        <property name="raw_url" type="string" />
+        <property name="contents_url" type="string" />
+        <property name="patch" type="string" />
+      </object>
+      <string name="WebhookPullRequestResponse_action_def" />
+      <integer name="WebhookPullRequestResponse_number_def" />
+      <object name="WebhookPullRequestResponse">
+        <property name="action" type="string" />
+        <property name="number" type="integer" />
+        <property name="pull_request" typeRef="PullRequest" />
+      </object>
+      <boolean name="WebhookRequestBody_active_def" />
+      <string name="WebhookRequestBody_name_def" />
+      <string name="WebhookRequestBody_config_def_content_type_def" />
+      <string name="WebhookRequestBody_config_def_url_def" />
+      <object name="WebhookRequestBody_config_def">
+        <property name="content_type" type="string" />
+        <property name="url" type="string" />
+      </object>
+      <string name="WebhookRequestBody_events_def_items_def" />
+      <array type="string" name="WebhookRequestBody_events_def" />
+      <object name="WebhookRequestBody">
+        <property name="active" type="boolean" />
+        <property name="name" type="string" />
+        <property name="config" typeRef="WebhookRequestBody_config_def" />
+        <property name="events" typeRef="WebhookRequestBody_events_def" />
+      </object>
+      <string name="WebhookCreationResponse_type_def" />
+      <integer name="WebhookCreationResponse_id_def" />
+      <string name="WebhookCreationResponse_name_def" />
+      <boolean name="WebhookCreationResponse_active_def" />
+      <string name="WebhookCreationResponse_events_def_items_def" />
+      <array type="string" name="WebhookCreationResponse_events_def" />
+      <string name="WebhookCreationResponse_config_def_content_type_def" />
+      <string name="WebhookCreationResponse_config_def_url_def" />
+      <object name="WebhookCreationResponse_config_def">
+        <property name="content_type" type="string" />
+        <property name="url" type="string" />
+      </object>
+      <string name="WebhookCreationResponse_updated_at_def" />
+      <string name="WebhookCreationResponse_created_at_def" />
+      <string name="WebhookCreationResponse_url_def" />
+      <string name="WebhookCreationResponse_test_url_def" />
+      <string name="WebhookCreationResponse_ping_url_def" />
+      <string name="WebhookCreationResponse_last_response_def_code_def" />
+      <string name="WebhookCreationResponse_last_response_def_status_def" />
+      <string name="WebhookCreationResponse_last_response_def_message_def" />
+      <object name="WebhookCreationResponse_last_response_def">
+        <property name="code" type="string" />
+        <property name="status" type="string" />
+        <property name="message" type="string" />
+      </object>
+      <object name="WebhookCreationResponse">
+        <property name="type" type="string" />
+        <property name="id" type="integer" />
+        <property name="name" type="string" />
+        <property name="active" type="boolean" />
+        <property name="events" typeRef="WebhookCreationResponse_events_def" />
+        <property name="config" typeRef="WebhookCreationResponse_config_def" />
+        <property name="updated_at" type="string" />
+        <property name="created_at" type="string" />
+        <property name="url" type="string" />
+        <property name="test_url" type="string" />
+        <property name="ping_url" type="string" />
+        <property name="last_response" typeRef="WebhookCreationResponse_last_response_def" />
+      </object>
+      <array typeRef="PullRequestFile" name="GetPullRequestFiles_responses_200_def" />
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://india-001.azure-apim.net/apim/github">
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/issues">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <method siena:requiresAuthentication="true" name="POST" id="CreateIssue" actionName="CreateIssue" visibility="important" siena:isDeprecated="false">
+        <doc title="Create an issue&#xA;This operation is used to create a new issue for a specific repository." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="title" path="/title" type="xs:string" required="true" />
+            <param style="plain" name="body" path="/body" type="xs:string" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:IssueDetailsModel" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/issues">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="GetIssues" actionName="GetIssues" visibility="important" siena:isDeprecated="false">
+        <doc title="Get all issues of a repository&#xA;Get all issues of a repository." />
+        <request>
+          <param style="query" name="milestone" type="xs:string">
+            <doc title="Filter by milestone." />
+          </param>
+          <param style="query" name="state" type="xs:string">
+            <doc title="Filter by state." />
+          </param>
+          <param style="query" name="assignee" type="xs:string">
+            <doc title="Filter by assignee." />
+          </param>
+          <param style="query" name="creator" type="xs:string">
+            <doc title="Filter by creator." />
+          </param>
+          <param style="query" name="mentioned" type="xs:string">
+            <doc title="Filter by mentions." />
+          </param>
+          <param style="query" name="labels" type="xs:string">
+            <doc title="Filter by label names." />
+          </param>
+          <param style="query" name="sort" type="xs:string">
+            <doc title="Field to sort results by." />
+          </param>
+          <param style="query" name="direction" type="xs:string">
+            <doc title="Direction of sort." />
+          </param>
+          <param style="query" name="since" type="xs:string">
+            <doc title="Filter by issues after given date." />
+          </param>
+          <param style="query" name="per_page" type="xs:long">
+            <doc title="Number of results per page." />
+          </param>
+          <param style="query" name="page" type="xs:long">
+            <doc title="Page number to display." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:MultipleFetchModel" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/actions/secrets/public-key">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="GetRepositoryPublicKey" actionName="GetRepositoryPublicKey" visibility="important" siena:isDeprecated="false" siena:status="Preview">
+        <doc title="Get a repository public key&#xA;Gets your public key, which you need to encrypt secrets. You need to encrypt a secret before you can create or update secrets." />
+        <request>
+          <param style="header" name="Accept" type="xs:string" required="true" fixed="application/vnd.github.v3+json" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:ActionsPublicKey" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/actions/secrets/{secretName}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <param style="template" name="secretName" type="xs:string" required="true">
+        <doc title="Name of the secret." />
+      </param>
+      <method siena:requiresAuthentication="true" name="PUT" id="CreateUpdateRepositorySecret" actionName="CreateUpdateRepositorySecret" visibility="important" siena:isDeprecated="false" siena:status="Preview">
+        <doc title="Create or update a repository secret&#xA;Creates or updates a repository secret with an encrypted value. Encrypt your secret using LibSodium." />
+        <request>
+          <param style="header" name="Accept" type="xs:string" required="true" fixed="application/vnd.github.v3+json" />
+          <representation mediaType="application/json">
+            <param style="plain" name="encrypted_value" path="/encrypted_value" type="xs:string" />
+            <param style="plain" name="key_id" path="/key_id" type="xs:string" />
+          </representation>
+        </request>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{templateOwner}/{templateRepository}/generate">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="templateOwner" type="xs:string" required="true">
+        <doc title="Name of the template repository owner." />
+      </param>
+      <param style="template" name="templateRepository" type="xs:string" required="true">
+        <doc title="Name of the template repository." />
+      </param>
+      <method siena:requiresAuthentication="true" name="POST" id="CreateRepositoryUsingTemplate" actionName="CreateRepositoryUsingTemplate" visibility="important" siena:isDeprecated="false" siena:status="Preview">
+        <doc title="Create a repository using a template&#xA;Creates a new repository using a repository template. The authenticated user must own or be a member of an organization that owns the repository." />
+        <request>
+          <param style="header" name="Accept" type="xs:string" required="true" fixed="application/vnd.github.baptiste-preview+json" />
+          <representation mediaType="application/json">
+            <param style="plain" name="owner" path="/owner" type="xs:string" />
+            <param style="plain" name="name" path="/name" type="xs:string" required="true" />
+            <param style="plain" name="description" path="/description" type="xs:string" />
+            <param style="plain" name="private" path="/private" type="xs:boolean" default="false" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:RepositoryDetails" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repositories/{repositoryId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryId" type="xs:long" required="true">
+        <doc title="Unique Identifier of the repository." />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="GetRepositoryById" actionName="GetRepositoryById" visibility="important" siena:isDeprecated="false" siena:status="Preview">
+        <doc title="Get a repository by Id&#xA;Gets a repository by Id." />
+        <request>
+          <param style="header" name="Accept" type="xs:string" required="true" fixed="application/vnd.github.v3+json" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:RepositoryDetails" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/git/refs">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <method siena:requiresAuthentication="true" name="POST" id="CreateReference" actionName="CreateReference" visibility="important" siena:isDeprecated="false" siena:status="Preview">
+        <doc title="Create a reference&#xA;Creates a reference for your repository. You are unable to create new references for empty repositories, even if the commit SHA-1 hash used exists. Empty repositories are repositories without branches." />
+        <request>
+          <param style="header" name="Accept" type="xs:string" required="true" fixed="application/vnd.github.v3+json" />
+          <representation mediaType="application/json">
+            <param style="plain" name="ref" path="/ref" type="xs:string" required="true" />
+            <param style="plain" name="sha" path="/sha" type="xs:string" required="true" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GitReference" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/git/ref/{reference}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <param style="template" name="reference" type="xs:string" required="true">
+        <doc title="The ref in the URL must be formatted as heads/&lt;branch name&gt; for branches and tags/&lt;tag name&gt; for tags." />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="GetReference" actionName="GetReference" visibility="important" siena:isDeprecated="false" siena:status="Preview">
+        <doc title="Get a reference&#xA;Returns a single reference from your Git database. The `reference` parameter must be formatted as `heads/&lt;branch name&gt;` for branches and `tags/&lt;tag name&gt;` for tags. If the `reference` doesn't match an existing ref, a `404` is returned." />
+        <request>
+          <param style="header" name="Accept" type="xs:string" required="true" fixed="application/vnd.github.v3+json" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GitReference" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/pulls/{pullNumber}/merge">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <param style="template" name="pullNumber" type="xs:long" required="true">
+        <doc title="Pull Number." />
+      </param>
+      <method siena:requiresAuthentication="true" name="PUT" id="MergePullRequest" actionName="MergePullRequest" visibility="important" siena:isDeprecated="false" siena:status="Preview">
+        <doc title="Merge a pull request&#xA;This operation is used to merge a pull request for the repository." />
+        <request>
+          <param style="header" name="Accept" type="xs:string" required="true" fixed="application/vnd.github.v3+json" />
+          <representation mediaType="application/json">
+            <param style="plain" name="commitTitle" path="/commitTitle" type="xs:string" />
+            <param style="plain" name="commitMessage" path="/commitMessage" type="xs:string" />
+            <param style="plain" name="sha" path="/sha" type="xs:string" />
+            <param style="plain" name="mergeMethod" path="/mergeMethod" type="xs:string">
+              <option value="merge" />
+              <option value="squash" />
+              <option value="rebase" />
+            </param>
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:PullRequestMergeResult" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/pulls/{pullNumber}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <param style="template" name="pullNumber" type="xs:long" required="true">
+        <doc title="Pull Number." />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="GetPullRequest" actionName="GetPullRequest" visibility="important" siena:isDeprecated="false" siena:status="Preview">
+        <doc title="Get a pull request&#xA;This operation is used to get a pull request for the repository." />
+        <request>
+          <param style="header" name="Accept" type="xs:string" required="true" fixed="application/vnd.github.v3+json" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:PullRequest" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/pulls/{pullNumber}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <param style="template" name="pullNumber" type="xs:long" required="true">
+        <doc title="Pull Number." />
+      </param>
+      <method siena:requiresAuthentication="true" name="PATCH" id="UpdatePullRequest" actionName="UpdatePullRequest" visibility="important" siena:isDeprecated="false" siena:status="Preview">
+        <doc title="Update a pull request&#xA;This operation is used to update a pull request for the repository. To update a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to open or update a pull request." />
+        <request>
+          <param style="header" name="Accept" type="xs:string" required="true" fixed="application/vnd.github.v3+json" />
+          <representation mediaType="application/json">
+            <param style="plain" name="title" path="/title" type="xs:string" />
+            <param style="plain" name="body" path="/body" type="xs:string" />
+            <param style="plain" name="state" path="/state" type="xs:string">
+              <option value="open" />
+              <option value="closed" />
+            </param>
+            <param style="plain" name="base" path="/base" type="xs:string" />
+            <param style="plain" name="maintainer_can_modify" path="/maintainer_can_modify" type="xs:boolean" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:PullRequest" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/pulls/{pullNumber}/files">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <param style="template" name="pullNumber" type="xs:long" required="true">
+        <doc title="Pull Number." />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="GetPullRequestFiles" actionName="GetPullRequestFiles" visibility="important" siena:isDeprecated="false" siena:status="Preview">
+        <doc title="Get the list of files from a pull request&#xA;This operation is used to get the list of files from a pull request for the repository." />
+        <request>
+          <param style="header" name="Accept" type="xs:string" required="true" fixed="application/vnd.github.v3+json" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:GetPullRequestFiles_responses_200_def" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/pulls">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <method siena:requiresAuthentication="true" name="POST" id="CreatePullRequest" actionName="CreatePullRequest" visibility="important" siena:isDeprecated="false" siena:status="Preview">
+        <doc title="Create a pull request&#xA;This operation is to create a pull request in a repository. To open or update a pull request in a public repository, you must have write access to the head or the source branch. For organization-owned repositories, you must be a member of the organization that owns the repository to create a pull request." />
+        <request>
+          <param style="header" name="Accept" type="xs:string" required="true" fixed="application/vnd.github.v3+json" />
+          <representation mediaType="application/json">
+            <param style="plain" name="title" path="/title" type="xs:string" />
+            <param style="plain" name="head" path="/head" type="xs:string" required="true" />
+            <param style="plain" name="base" path="/base" type="xs:string" required="true" />
+            <param style="plain" name="body" path="/body" type="xs:string" />
+            <param style="plain" name="maintainer_can_modify" path="/maintainer_can_modify" type="xs:boolean" />
+            <param style="plain" name="draft" path="/draft" type="xs:boolean" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:PullRequest" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/pulls">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="GetPullRequests" actionName="GetPullRequests" visibility="important" siena:isDeprecated="false">
+        <doc title="Get all Pull Requests of A Repository&#xA;Get all Pull Requests of A Repository." />
+        <request>
+          <param style="query" name="state" type="xs:string">
+            <doc title="Filter by state." />
+          </param>
+          <param style="query" name="head" type="xs:string">
+            <doc title="Filter by head user or organization." />
+          </param>
+          <param style="query" name="base" type="xs:string">
+            <doc title="Filter by base branch name." />
+          </param>
+          <param style="query" name="sort" type="xs:string">
+            <doc title="What to sort the results by." />
+          </param>
+          <param style="query" name="direction" type="xs:string">
+            <doc title="Direction of sort." />
+          </param>
+          <param style="query" name="per_page" type="xs:long">
+            <doc title="Number of results per page." />
+          </param>
+          <param style="query" name="page" type="xs:long">
+            <doc title="Page number to display." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:MultipleFetchModel" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/dispatches">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <method siena:requiresAuthentication="true" name="POST" id="CreateRepositoryDispatchEvent" actionName="CreateRepositoryDispatchEvent" visibility="important" siena:isDeprecated="false" siena:status="Preview">
+        <doc title="Create a repository dispatch event&#xA;This operation is to trigger a webhook event called `repository_dispatch` when you want activity that happens outside of GitHub to trigger a GitHub Actions workflow or GitHub App webhook. You must configure your GitHub Actions workflow or GitHub App to run when the `repository_dispatch` event occurs." />
+        <request>
+          <param style="header" name="Accept" type="xs:string" required="true" fixed="application/vnd.github.v3+json" />
+          <representation mediaType="application/json">
+            <param style="plain" name="event_type" path="/event_type" type="xs:string" />
+            <param style="plain" name="client_payload" path="/client_payload" type="service:RepositoryDispatchEvent_client_payload_def" />
+          </representation>
+        </request>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/compare/{base}...{head}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <param style="template" name="base" type="xs:string" required="true">
+        <doc title="base parameter" />
+      </param>
+      <param style="template" name="head" type="xs:string" required="true">
+        <doc title="head parameter" />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="CompareRepositoryCommits" actionName="CompareRepositoryCommits" visibility="important" siena:isDeprecated="false" siena:status="Preview">
+        <doc title="Compare two commits&#xA;Both `base` and `head` must be branch names in `repositoryName`. To compare branches across other repositories in the same network as `repositoryName`, use the format `&lt;USERNAME&gt;:branch`. The response is equivalent to running the `git log base..head` command; however, commits are returned in chronological order." />
+        <request>
+          <param style="header" name="Accept" type="xs:string" required="true" fixed="application/vnd.github.v3+json" />
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:CommitComparison" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/orgs/{repositoryOwner}/actions/secrets/{secretName}/repositories/{repositoryId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryId" type="xs:long" required="true">
+        <doc title="Unique Identifier of the repository." />
+      </param>
+      <param style="template" name="secretName" type="xs:string" required="true">
+        <doc title="Name of the secret." />
+      </param>
+      <method siena:requiresAuthentication="true" name="PUT" id="AddSelectedRepoToOrgSecret" actionName="AddSelectedRepoToOrgSecret" visibility="important" siena:isDeprecated="false" siena:status="Preview">
+        <doc title="Add selected repository to an organization secret&#xA;Adds a repository to an organization secret when the `visibility` for repository access is set to `selected`. The visibility is set when you [Create or update an organization secret](https://developer.github.com/v3/actions/secrets/#create-or-update-an-organization-secret). You must authenticate using an access token with the `admin:org` scope to use this endpoint. GitHub Apps must have the `secrets` organization permission to use this endpoint." />
+        <request />
+      </method>
+    </resource>
+    <resource path="/{connectionId}/orgs/{repositoryOwner}/actions/secrets/{secretName}/repositories/{repositoryId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryId" type="xs:long" required="true">
+        <doc title="Unique Identifier of the repository." />
+      </param>
+      <param style="template" name="secretName" type="xs:string" required="true">
+        <doc title="Name of the secret." />
+      </param>
+      <method siena:requiresAuthentication="true" name="DELETE" id="RemoveSelectedRepoFromOrgSecret" actionName="RemoveSelectedRepoFromOrgSecret" visibility="important" siena:isDeprecated="false" siena:status="Preview">
+        <doc title="Remove selected repository from an organization secret&#xA;Removes a repository from an organization secret when the `visibility` for repository access is set to `selected`. The visibility is set when you [Create or update an organization secret](https://developer.github.com/v3/actions/secrets/#create-or-update-an-organization-secret). You must authenticate using an access token with the `admin:org` scope to use this endpoint. GitHub Apps must have the `secrets` organization permission to use this endpoint." />
+        <request />
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/hooks/{webhookId}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <param style="template" name="webhookId" type="xs:string" required="true">
+        <doc title="ID of the GitHub Webhook" />
+      </param>
+      <method siena:requiresAuthentication="true" name="DELETE" id="DeleteWebhookTrigger" actionName="DeleteWebhookTrigger" siena:isDeprecated="false" siena:status="Preview">
+        <doc title="Deletes a GitHub Webhook&#xA;Deletes a GitHub Webhook" />
+        <request />
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/issues/{issueNumber}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <param style="template" name="issueNumber" type="xs:long" required="true">
+        <doc title="Issue Number for a given issue." />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="GetIssueNum" actionName="GetIssueNum" visibility="important" siena:isDeprecated="false">
+        <doc title="Get a particular issue of a repository&#xA;Get a particular issue of a repository." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:IssueDetailsModel" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/issues/{issueNumber}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <param style="template" name="issueNumber" type="xs:long" required="true">
+        <doc title="Issue Number for a given issue." />
+      </param>
+      <method siena:requiresAuthentication="true" name="PATCH" id="UpdateIssueNum" actionName="UpdateIssueNum" visibility="important" siena:isDeprecated="false">
+        <doc title="Update an Issue&#xA;Update an existing issue given the issue number." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="title" path="/title" type="xs:string" />
+            <param style="plain" name="body" path="/body" type="xs:string" />
+            <param style="plain" name="assignee" path="/assignee" type="xs:string" />
+            <param style="plain" name="state" path="/state" type="xs:string" />
+            <param style="plain" name="state_reason" path="/state_reason" type="xs:string" />
+            <param style="plain" name="milestone" path="/milestone" type="xs:string" />
+            <param style="plain" name="labels" path="/labels" type="service:IssueUpdateModel_labels_def" />
+            <param style="plain" name="assignees" path="/assignees" type="service:IssueUpdateModel_assignees_def" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:IssueDetailsModel" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/milestones/{milestoneNumber}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <param style="template" name="milestoneNumber" type="xs:long" required="true">
+        <doc title="Milestone number for a given milestone." />
+      </param>
+      <method siena:requiresAuthentication="true" name="PATCH" id="UpdateMilestone" actionName="UpdateMilestone" visibility="important" siena:isDeprecated="false">
+        <doc title="Update a milestone&#xA;Update an existing milestone." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="title" path="/title" type="xs:string" />
+            <param style="plain" name="state" path="/state" type="xs:string" />
+            <param style="plain" name="description" path="/description" type="xs:string" />
+            <param style="plain" name="due_on" path="/due_on" type="xs:string" />
+          </representation>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:Milestone" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/user">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetUser" actionName="GetUser" visibility="important" siena:isDeprecated="false">
+        <doc title="Get the authenticated user&#xA;Get the authenticated user." />
+        <request />
+        <response>
+          <representation mediaType="application/json" element="service:UserDetailsModel" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/graphql">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="SearchGithubWithQuery" actionName="SearchGithubWithQuery" visibility="important" siena:isDeprecated="false">
+        <doc title="Search Github using Query&#xA;Search Github using Query" />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="query" path="/query" type="xs:string" />
+          </representation>
+        </request>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/assignees">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="GetAssignees" actionName="GetAssignees" visibility="important" siena:isDeprecated="false">
+        <doc title="Lists the available assignees for issues in a repository&#xA;Lists the available assignees for issues in a repository." />
+        <request>
+          <param style="query" name="per_page" type="xs:long">
+            <doc title="Number of results per page." />
+          </param>
+          <param style="query" name="page" type="xs:long">
+            <doc title="Page number to display." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:MultipleFetchModel" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/milestones">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="GetMilestones" actionName="GetMilestones" visibility="important" siena:isDeprecated="false">
+        <doc title="Lists all milestones of a repository&#xA;Lists all milestones of a repository." />
+        <request>
+          <param style="query" name="state" type="xs:string">
+            <doc title="State of the milestone." />
+          </param>
+          <param style="query" name="sort" type="xs:string">
+            <doc title="What to sort the results by." />
+          </param>
+          <param style="query" name="direction" type="xs:string">
+            <doc title="Direction of sort." />
+          </param>
+          <param style="query" name="per_page" type="xs:long">
+            <doc title="Number of results per page." />
+          </param>
+          <param style="query" name="page" type="xs:long">
+            <doc title="Page number to display." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:MultipleFetchModel" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/labels">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="GetLabels" actionName="GetLabels" visibility="important" siena:isDeprecated="false">
+        <doc title="Lists all labels for a repository&#xA;Lists all labels for a repository." />
+        <request>
+          <param style="query" name="per_page" type="xs:long">
+            <doc title="Number of results per page." />
+          </param>
+          <param style="query" name="page" type="xs:long">
+            <doc title="Page number to display." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:MultipleFetchModel" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/repos/{repositoryOwner}/{repositoryName}/issues/{issueNumber}/labels">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <param style="template" name="repositoryName" type="xs:string" required="true">
+        <doc title="Name of the repository." />
+      </param>
+      <param style="template" name="issueNumber" type="xs:long" required="true">
+        <doc title="Issue Number for a given issue." />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="GetIssueLabels" actionName="GetIssueLabels" visibility="important" siena:isDeprecated="false">
+        <doc title="Lists all labels for an issue&#xA;Lists all labels for an issue." />
+        <request>
+          <param style="query" name="per_page" type="xs:long">
+            <doc title="Number of results per page." />
+          </param>
+          <param style="query" name="page" type="xs:long">
+            <doc title="Page number to display." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:MultipleFetchModel" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/users/{repositoryOwner}/repos">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="GetRepos" actionName="GetRepos" visibility="important" siena:isDeprecated="false">
+        <doc title="Lists all public repositories for a user&#xA;Lists all public repositories for a user." />
+        <request>
+          <param style="query" name="type" type="xs:string">
+            <doc title="Limit results to repositories of the specified type." />
+          </param>
+          <param style="query" name="sort" type="xs:string">
+            <doc title="The property to sort the results by." />
+          </param>
+          <param style="query" name="direction" type="xs:string">
+            <doc title="Direction of sort." />
+          </param>
+          <param style="query" name="per_page" type="xs:long">
+            <doc title="Number of results per page." />
+          </param>
+          <param style="query" name="page" type="xs:long">
+            <doc title="Page number to fetch" />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:MultipleFetchModel" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/orgs/{repositoryOwner}/repos">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="repositoryOwner" type="xs:string" required="true">
+        <doc title="Name of the repository owner." />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="GetOrgRepos" actionName="GetOrgRepos" visibility="important" siena:isDeprecated="false">
+        <doc title="Lists all public repositories for an organization&#xA;Lists all public repositories for an organization." />
+        <request>
+          <param style="query" name="type" type="xs:string">
+            <doc title="Limit results to repositories of the specified type." />
+          </param>
+          <param style="query" name="sort" type="xs:string">
+            <doc title="The property to sort the results by." />
+          </param>
+          <param style="query" name="direction" type="xs:string">
+            <doc title="Direction of sort." />
+          </param>
+          <param style="query" name="per_page" type="xs:long">
+            <doc title="Number of results per page." />
+          </param>
+          <param style="query" name="page" type="xs:long">
+            <doc title="Page number to fetch" />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:MultipleFetchModel" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/user/repos">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="GetUserRepos" actionName="GetUserRepos" visibility="important" siena:isDeprecated="false">
+        <doc title="Lists all repositories for the authenticated user&#xA;Lists all repositories (both public and private) for the authenticated user." />
+        <request>
+          <param style="query" name="visibility" type="xs:string">
+            <doc title="Limit results to repositories of the specified visibility(public/private/all)." />
+          </param>
+          <param style="query" name="affiliation" type="xs:string">
+            <doc title="Limit results based on affiliation." />
+          </param>
+          <param style="query" name="since" type="xs:string">
+            <doc title="Limit results to repositories updated after a given time." />
+          </param>
+          <param style="query" name="before" type="xs:string">
+            <doc title="Limit results to repositories updated before a given time." />
+          </param>
+          <param style="query" name="type" type="xs:string">
+            <doc title="Limit results to repositories of the specified type." />
+          </param>
+          <param style="query" name="sort" type="xs:string">
+            <doc title="The property to sort the results by." />
+          </param>
+          <param style="query" name="direction" type="xs:string">
+            <doc title="Direction of sort." />
+          </param>
+          <param style="query" name="per_page" type="xs:long">
+            <doc title="Number of results per page." />
+          </param>
+          <param style="query" name="page" type="xs:long">
+            <doc title="Page number to fetch" />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:MultipleFetchModel" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/search/issues">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="GET" id="SearchIssues" actionName="SearchIssues" visibility="important" siena:isDeprecated="false">
+        <doc title="Find issues by state and keyword&#xA;Find issues by state and keyword." />
+        <request>
+          <param style="query" name="q" type="xs:string" required="true">
+            <doc title="Search keywords and qualifiers." />
+          </param>
+          <param style="query" name="sort" type="xs:string">
+            <doc title="The property to sort the results by." />
+          </param>
+          <param style="query" name="order" type="xs:string">
+            <doc title="Direction of sort." />
+          </param>
+          <param style="query" name="per_page" type="xs:long">
+            <doc title="Number of results per page." />
+          </param>
+          <param style="query" name="page" type="xs:long">
+            <doc title="Page number to fetch" />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:MultipleSearchFetchModel" />
+        </response>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_github" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

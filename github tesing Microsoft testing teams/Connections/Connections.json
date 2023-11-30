@@ -1,0 +1,16 @@
+{
+  "17dc6e7e-1a61-442c-a5a7-5645d4287102": {
+    "connectionRef": {
+      "displayName": "GitHub",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1651/1.0.1651.3382/github/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_github"
+    },
+    "datasets": {},
+    "dataSources": [
+      "GitHub"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "17dc6e7e-1a61-442c-a5a7-5645d4287102"
+  }
+}
